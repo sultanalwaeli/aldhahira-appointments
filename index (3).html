@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منصة التعيينات والتنقلات | محافظة الظاهرة</title>
+<style>
+:root{--navy:#102f4b;--blue:#17618c;--gold:#caa35d;--bg:#f2f6fa;--text:#17354a;--muted:#687d8b}*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text)}[hidden]{display:none!important}.top{background:linear-gradient(120deg,#0d2b45,#175d83);color:white;padding:24px 5% 60px;position:relative;overflow:hidden}.top:after{content:'';position:absolute;width:340px;height:340px;border:1px solid #ffffff20;border-radius:50%;left:-120px;top:-180px}.brand{display:flex;align-items:center;gap:18px;position:relative;z-index:1}.brand img{width:86px;height:86px;object-fit:contain;background:#fff;border-radius:16px;padding:8px}.brand small{display:block;color:#c9e0ed;font-size:13px;margin-bottom:7px}.brand h1{font-size:clamp(19px,3vw,29px);margin:0 0 7px}.brand p{margin:0;color:#d6e6ee;font-size:14px}.wrap{max-width:1150px;margin:-38px auto 60px;padding:0 18px;position:relative;z-index:2}.notice{background:#fff9eb;border:1px solid #eed7a4;border-radius:14px;padding:15px 18px;margin-bottom:18px;line-height:1.9;color:#795d25;font-size:14px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.tile{background:white;border:1px solid #e3eaf0;border-radius:19px;padding:25px;box-shadow:0 8px 25px #1234520b;cursor:pointer;text-align:right;transition:.2s;color:inherit;font:inherit}.tile:hover,.tile.active{border-color:#2d7fa9;transform:translateY(-2px)}.tile .symbol{font-size:30px;display:block;margin-bottom:14px}.tile strong{display:block;font-size:18px;margin-bottom:9px}.tile span{color:var(--muted);font-size:13px;line-height:1.8}.panel{margin-top:20px;background:white;border:1px solid #e3eaf0;border-radius:20px;padding:27px;box-shadow:0 8px 25px #1234520b}.panel h2{margin:0 0 8px;font-size:21px}.panel p{color:var(--muted);line-height:1.9;font-size:14px;margin:0 0 22px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}input,select,textarea{width:100%;border:1px solid #d5e0e8;border-radius:11px;padding:13px;font:inherit;background:#fafcfd;color:#234}input:disabled,select:disabled,textarea:disabled{background:#edf2f5;color:#80919d;cursor:not-allowed}.wide{grid-column:1/-1}.actions{margin-top:20px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:13px 22px;background:#17618c;color:white;font:inherit;font-weight:bold;cursor:pointer}.btn:disabled{background:#a9bcc9;cursor:not-allowed}.btn.secondary{background:#e7f0f6;color:#155475}.sub{color:var(--muted);font-size:12px}.pill{display:inline-block;background:#e9f1f6;color:#1a658b;border-radius:99px;padding:6px 12px;font-size:12px;font-weight:bold;margin-bottom:15px}.status{margin:12px 0 0;font-size:13px;line-height:1.8;min-height:22px}.status.error{color:#ad2c36}.status.ok{color:#17623a}.identity{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap;background:#eef7f2;border:1px solid #b9dfc9;padding:15px 18px;border-radius:14px;margin-bottom:18px}.identity strong{color:#175a3c}.identity span{font-size:13px;overflow-wrap:anywhere}.identity .btn{padding:9px 16px}footer{text-align:center;color:#718798;font-size:12px;padding:0 20px 35px}@media(max-width:720px){.grid,.fields{grid-template-columns:1fr}.top{padding:20px 18px 65px}.brand img{width:65px;height:65px}.panel{padding:20px}.tile{padding:18px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand"><img src="https://c.top4top.io/p_3940gfxsl1.png" alt="الشعار الرسمي"><div><small>المديرية العامة للتعليم بمحافظة الظاهرة</small><h1>منصة التعيينات والتنقلات</h1><p>النظام الإلكتروني لطلبات المعلمين البدلاء</p></div></div></header>
+<main class="wrap">
+<div class="notice"><strong>مرحلة التأسيس الآمن:</strong> تسجيل الدخول مفعل للتجربة فقط. خدمات بيانات الموظفين وتقديم الطلبات ومتابعتها معطلة حتى اكتمال اعتماد الحسابات وصلاحيات الخادم. لا تدخل بيانات موظفين حقيقية الآن.</div>
+<section class="panel" id="loginPanel" aria-label="تسجيل الدخول"><span class="pill">الدخول الآمن</span><h2>تسجيل الدخول إلى المنصة</h2><p>تُنشأ الحسابات بواسطة الجهة المخولة. لا يتوفر تسجيل ذاتي للمستخدمين من هذه الواجهة.</p><form id="loginForm"><div class="fields"><div><label for="email">البريد الإلكتروني</label><input id="email" type="email" autocomplete="username" required placeholder="البريد المسجل في المنصة"></div><div><label for="password">كلمة المرور</label><input id="password" type="password" autocomplete="current-password" required placeholder="كلمة المرور"></div></div><div class="actions"><button class="btn" id="loginBtn" type="submit" disabled>تسجيل الدخول</button><span class="sub">لن تُرسل كلمة المرور إلى GitHub أو Google Sheets</span></div><div class="status" id="loginStatus" role="status" aria-live="polite">جارٍ تهيئة خدمة تسجيل الدخول…</div></form></section>
+<div class="identity" id="identity" hidden><div><strong>تم تسجيل الدخول بنجاح</strong><div><span id="userEmail"></span></div><span class="sub">الهوية مؤكدة في Firebase، والصلاحيات الوظيفية لم تُعتمد بعد.</span></div><button class="btn secondary" id="logoutBtn" type="button">تسجيل الخروج</button></div>
+<div id="workspace" hidden>
+<section class="grid" aria-label="بوابات المنصة"><button type="button" class="tile active" data-view="request" onclick="showView('request')"><span class="symbol">🏫</span><strong>تقديم طلب معلم بديل</strong><span>إدخال الرقم الوظيفي للمعلم المجاز واستكمال تفاصيل الإجازة.</span></button><button type="button" class="tile" data-view="follow" onclick="showView('follow')"><span class="symbol">📋</span><strong>متابعة طلبات المدرسة</strong><span>متابعة طلبات المدرسة وحالاتها بعد اعتماد صلاحية المدير.</span></button><button type="button" class="tile" data-view="admin" onclick="showView('admin')"><span class="symbol">🏛️</span><strong>قسم التعيينات والتنقلات</strong><span>مراجعة الطلبات والبحث عن البدلاء وإدارة التكليفات بعد اعتماد صلاحيات القسم.</span></button></section>
+<section class="panel" id="request"><span class="pill">بوابة المدارس</span><h2>طلب توفير معلم بديل</h2><p>سيُستخرج اسم المعلم ووظيفته ومدرسته تلقائيًا بعد اعتماد صلاحيات المستخدم والتحقق منها على الخادم.</p><div class="fields"><div><label>الرقم الوظيفي للمعلم المجاز</label><input disabled placeholder="الرقم الوظيفي"></div><div><label>اسم المدرسة</label><input disabled placeholder="يظهر تلقائيًا"></div><div><label>اسم المعلم المجاز</label><input disabled placeholder="يظهر تلقائيًا"></div><div><label>الوظيفة / التخصص</label><input disabled placeholder="يظهر تلقائيًا"></div><div><label>نوع الإجازة</label><select disabled><option>اختر نوع الإجازة</option><option>إجازة مرضية</option><option>إجازة وضع</option><option>إجازة بدون راتب</option><option>إجازة مرافقة زوج/زوجة</option><option>إجازة حج</option><option>إجازة عدة</option><option>إجازة تفرغ</option></select></div><div><label>الصفوف</label><input disabled placeholder="مثال: الخامس إلى الثامن"></div><div><label>بداية الإجازة</label><input type="date" disabled></div><div><label>نهاية الإجازة</label><input type="date" disabled></div></div><div class="actions"><button class="btn" disabled>إرسال الطلب</button><span class="sub">يتطلب اعتماد صلاحيات المدارس وربط الخادم</span></div></section>
+<section class="panel" id="follow" hidden><span class="pill">لوحة مدير المدرسة</span><h2>متابعة طلبات مدرستي</h2><p>ستظهر طلبات المدرسة المرتبطة بحساب المدير بعد اعتماد دوره والتحقق من رمز تسجيل الدخول على الخادم.</p><div class="actions"><button class="btn" disabled>عرض طلبات المدرسة</button><span class="sub">غير متاح في هذه المرحلة</span></div></section>
+<section class="panel" id="admin" hidden><span class="pill">لوحة القسم</span><h2>إدارة طلبات المعلمين البدلاء</h2><p>ستتيح لوحة القسم متابعة جميع المدارس واستيراد بيانات المتقدمين وتسجيل قرارات التكليف وإصدار التقارير بعد إعداد صلاحيات الإدارة على الخادم.</p><div class="actions"><button class="btn" disabled>دخول لوحة القسم</button><span class="sub">غير متاح حتى اعتماد دور المسؤول</span></div></section>
+</div>
+</main><footer>المديرية العامة للتعليم بمحافظة الظاهرة — مرحلة اختبار المصادقة، وليست جاهزة للتشغيل الفعلي</footer>
+<script>function showView(id){document.querySelectorAll('#workspace .panel').forEach(p=>p.hidden=p.id!==id);document.querySelectorAll('.tile').forEach(b=>b.classList.toggle('active',b.dataset.view===id));document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}</script>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js';
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js';
+const firebaseConfig = {
+  apiKey: 'AIzaSyD3ll7-HKLlryNtilSXtkb_FBG2Z4WG-AQ',
+  authDomain: 'al-dhahirah-appointments.firebaseapp.com',
+  projectId: 'al-dhahirah-appointments',
+  storageBucket: 'al-dhahirah-appointments.firebasestorage.app',
+  messagingSenderId: '1064117095409',
+  appId: '1:1064117095409:web:2518c102d97264bd779250'
+};
+const form = document.getElementById('loginForm');
+const status = document.getElementById('loginStatus');
+const loginBtn = document.getElementById('loginBtn');
+const loginPanel = document.getElementById('loginPanel');
+const identity = document.getElementById('identity');
+const workspace = document.getElementById('workspace');
+function setStatus(message, type=''){status.textContent=message;status.className='status '+type;}
+try {
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  onAuthStateChanged(auth, user => {
+    loginPanel.hidden=!!user;
+    identity.hidden=!user;
+    workspace.hidden=!user;
+    document.getElementById('userEmail').textContent=user?.email||'';
+    if(user){document.getElementById('password').value='';showView('request');}
+    else {loginBtn.disabled=false;setStatus('أدخل بيانات حسابك الذي أنشأه مسؤول النظام.');}
+  }, () => {loginBtn.disabled=true;setStatus('تعذر التحقق من حالة تسجيل الدخول. حدّث الصفحة أو تحقق من الاتصال.','error');});
+  form.addEventListener('submit', async event => {
+    event.preventDefault();loginBtn.disabled=true;setStatus('جارٍ التحقق من بيانات الدخول…');
+    try {await signInWithEmailAndPassword(auth,document.getElementById('email').value.trim(),document.getElementById('password').value);setStatus('تم تسجيل الدخول.','ok');}
+    catch(err){const messages={ 'auth/invalid-credential':'بيانات الدخول غير صحيحة.','auth/invalid-email':'صيغة البريد الإلكتروني غير صحيحة.','auth/too-many-requests':'محاولات كثيرة. حاول لاحقًا.','auth/network-request-failed':'تعذر الاتصال بخدمة تسجيل الدخول.','auth/user-disabled':'هذا الحساب معطّل.'};setStatus(messages[err.code]||'تعذر تسجيل الدخول. تحقق من بياناتك وحاول مجددًا.','error');}
+    finally {loginBtn.disabled=false;}
+  });
+  document.getElementById('logoutBtn').addEventListener('click',async()=>{try{await signOut(auth);}catch{alert('تعذر تسجيل الخروج. حاول مجددًا.');}});
+} catch {setStatus('تعذر تحميل إعدادات Firebase. تحقق من الاتصال بالإنترنت.','error');}
+</script>
+</body></html>
