@@ -5,983 +5,967 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>منصة التعيينات والتنقلات | محافظة الظاهرة</title>
-
 <style>
-:root {
-  --navy:#102f4b;
-  --blue:#17618c;
-  --gold:#caa35d;
-  --bg:#f2f6fa;
-  --text:#17354a;
-  --muted:#687d8b;
+:root{
+  --navy:#102f4b;--blue:#17618c;--gold:#caa35d;
+  --bg:#f2f6fa;--text:#17354a;--muted:#687d8b;
 }
-* { box-sizing:border-box; }
-body {
-  margin:0;
-  font-family:Tahoma,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-[hidden] { display:none!important; }
-header {
-  background:linear-gradient(120deg,#0d2b45,#175d83);
-  color:white;
-  padding:25px 5% 65px;
-}
-.brand {
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-.brand img {
-  width:85px;
-  height:85px;
-  object-fit:contain;
-  background:white;
-  border-radius:15px;
-  padding:8px;
-}
-.brand small { color:#c9e0ed; }
-.brand h1 {
-  margin:8px 0;
-  font-size:clamp(21px,3vw,30px);
-}
-.brand p {
-  margin:0;
-  color:#d6e6ee;
-}
-main {
-  max-width:1150px;
-  margin:-40px auto 50px;
-  padding:0 18px;
-  position:relative;
-}
-.notice {
-  background:#fff9eb;
-  border:1px solid #eed7a4;
-  color:#795d25;
-  border-radius:15px;
-  padding:16px 20px;
-  margin-bottom:20px;
-  line-height:1.9;
-}
-.panel,.tile {
-  background:white;
-  border:1px solid #e3eaf0;
-  border-radius:20px;
-  box-shadow:0 8px 25px #1234520b;
-}
-.panel {
-  padding:28px;
-  margin-bottom:20px;
-}
-.panel h2 {
-  margin:0 0 12px;
-  font-size:22px;
-}
-.panel p {
-  color:var(--muted);
-  line-height:1.9;
-}
-.grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:17px;
-  margin-bottom:20px;
-}
-.tile {
-  padding:27px;
-  text-align:right;
-  font:inherit;
-  cursor:pointer;
-  transition:.2s;
-  color:var(--text);
-}
-.tile:hover,.tile.active {
-  border-color:#2d7fa9;
-  transform:translateY(-2px);
-}
-.tile .symbol {
-  display:block;
-  font-size:32px;
-  margin-bottom:15px;
-}
-.tile strong {
-  display:block;
-  font-size:18px;
-  margin-bottom:10px;
-}
-.tile span:last-child {
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.9;
-}
-.fields {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-}
-label {
-  display:block;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:8px;
-}
-input,select,textarea {
-  width:100%;
-  border:1px solid #d5e0e8;
-  border-radius:11px;
-  padding:13px;
-  font:inherit;
-  background:#fafcfd;
-}
-input:focus,select:focus,textarea:focus {
-  outline:2px solid #a8d4ea;
-}
-input[readonly] {
-  background:#edf5f9;
-}
-.wide { grid-column:1/-1; }
-.actions {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:22px;
-}
-.btn {
-  border:0;
-  border-radius:11px;
-  padding:13px 22px;
-  background:var(--blue);
-  color:white;
-  font:inherit;
-  font-weight:bold;
-  cursor:pointer;
-}
-.btn:disabled {
-  background:#a9bcc9;
-  cursor:not-allowed;
-}
-.secondary {
-  background:#e7f0f6;
-  color:#155475;
-}
-.pill {
-  display:inline-block;
-  background:#e9f1f6;
-  color:#1a658b;
-  border-radius:30px;
-  padding:7px 14px;
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:15px;
-}
-.status {
-  margin-top:15px;
-  font-size:13px;
-  line-height:1.8;
-}
-.error { color:#ad2c36; }
-.ok { color:#17623a; }
-.identity {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
-  background:#eef7f2;
-  border:1px solid #b9dfc9;
-  border-radius:15px;
-  padding:17px;
-  margin-bottom:20px;
-}
-.identity strong { color:#175a3c; }
-.identity small {
-  display:block;
-  margin-top:7px;
-  line-height:1.8;
-}
-.preview {
-  background:#f5faff;
-  border:1px solid #b7d5e7;
-  border-radius:15px;
-  padding:20px;
-  margin-top:20px;
-}
-.preview-grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-}
-.preview-item {
-  background:white;
-  padding:13px;
-  border:1px solid #e1ebf1;
-  border-radius:10px;
-  overflow-wrap:anywhere;
-}
-.preview-item small {
-  display:block;
-  color:var(--muted);
-  margin-bottom:8px;
-}
-footer {
-  text-align:center;
-  color:#718798;
-  padding:25px;
-  font-size:12px;
-}
-@media(max-width:720px) {
-  .grid,.fields,.preview-grid {
-    grid-template-columns:1fr;
-  }
-  header { padding:20px 18px 65px; }
-  .brand img { width:65px;height:65px; }
-  .panel { padding:20px; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:Tahoma,Arial,sans-serif}
+[hidden]{display:none!important}
+header{background:linear-gradient(120deg,#0d2b45,#175d83);
+  color:#fff;padding:25px 5% 65px}
+.brand{display:flex;align-items:center;gap:18px}
+.brand img{width:85px;height:85px;object-fit:contain;
+  background:#fff;border-radius:15px;padding:8px}
+.brand small{color:#c9e0ed}
+.brand h1{margin:8px 0;font-size:clamp(21px,3vw,30px)}
+.brand p{margin:0;color:#d6e6ee}
+main{max-width:1150px;margin:-40px auto 50px;
+  padding:0 18px;position:relative}
+.notice{background:#fff9eb;border:1px solid #eed7a4;
+  color:#795d25;border-radius:15px;padding:16px 20px;
+  margin-bottom:20px;line-height:1.9}
+.panel,.tile{background:#fff;border:1px solid #e3eaf0;
+  border-radius:20px;box-shadow:0 8px 25px #1234520b}
+.panel{padding:28px;margin-bottom:20px}
+.panel h2{margin:0 0 12px;font-size:22px}
+.panel p{color:var(--muted);line-height:1.9}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);
+  gap:17px;margin-bottom:20px}
+.tile{padding:25px;text-align:right;font:inherit;cursor:pointer;
+  color:var(--text);transition:.2s}
+.tile:hover,.tile.active{border-color:#2d7fa9;
+  transform:translateY(-2px)}
+.tile .symbol{display:block;font-size:32px;margin-bottom:15px}
+.tile strong{display:block;font-size:18px;margin-bottom:10px}
+.tile span:last-child{color:var(--muted);font-size:13px;
+  line-height:1.9}
+.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+label{display:block;font-size:13px;font-weight:bold;margin-bottom:8px}
+input,select,textarea{width:100%;border:1px solid #d5e0e8;
+  border-radius:11px;padding:13px;font:inherit;background:#fafcfd}
+input:focus,select:focus,textarea:focus{outline:2px solid #a8d4ea}
+input[readonly]{background:#edf5f9}
+.wide{grid-column:1/-1}
+.actions{display:flex;align-items:center;gap:12px;
+  flex-wrap:wrap;margin-top:22px}
+.btn{border:0;border-radius:11px;padding:13px 22px;
+  background:var(--blue);color:#fff;font:inherit;
+  font-weight:bold;cursor:pointer}
+.btn:disabled{background:#a9bcc9;cursor:not-allowed}
+.secondary{background:#e7f0f6;color:#155475}
+.pill{display:inline-block;background:#e9f1f6;color:#1a658b;
+  border-radius:30px;padding:7px 14px;font-size:12px;
+  font-weight:bold;margin-bottom:15px}
+.status{margin-top:15px;font-size:13px;line-height:1.8}
+.error{color:#ad2c36}.ok{color:#17623a}
+.identity{display:flex;align-items:center;
+  justify-content:space-between;gap:15px;flex-wrap:wrap;
+  background:#eef7f2;border:1px solid #b9dfc9;
+  border-radius:15px;padding:17px;margin-bottom:20px}
+.identity strong{color:#175a3c}
+.identity small{display:block;margin-top:7px;line-height:1.8}
+.preview{background:#f5faff;border:1px solid #b7d5e7;
+  border-radius:15px;padding:20px;margin-top:20px}
+.preview-grid{display:grid;grid-template-columns:repeat(2,1fr);
+  gap:12px}
+.preview-item{background:#fff;padding:13px;
+  border:1px solid #e1ebf1;border-radius:10px;
+  overflow-wrap:anywhere}
+.preview-item small{display:block;color:var(--muted);
+  margin-bottom:8px}
+.table-wrap{overflow:auto;margin-top:16px}
+table{border-collapse:collapse;width:100%;min-width:680px;
+  font-size:13px}
+th,td{padding:12px;border-bottom:1px solid #e0e9ef;
+  text-align:right}
+th{background:#edf5fa;color:#164764}
+footer{text-align:center;color:#718798;padding:25px;font-size:12px}
+@media(max-width:720px){
+  .grid,.fields,.preview-grid{grid-template-columns:1fr}
+  header{padding:20px 18px 65px}
+  .brand img{width:65px;height:65px}
+  .panel{padding:20px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="brand">
-    <img
-      src="https://c.top4top.io/p_3940gfxsl1.png"
-      alt="الشعار الرسمي">
-    <div>
-      <small>المديرية العامة للتعليم بمحافظة الظاهرة</small>
-      <h1>منصة التعيينات والتنقلات</h1>
-      <p>النظام الإلكتروني لطلبات المعلمين البدلاء</p>
-    </div>
-  </div>
+<div class="brand">
+<img src="https://c.top4top.io/p_3940gfxsl1.png"
+  alt="الشعار الرسمي">
+<div>
+<small>المديرية العامة للتعليم بمحافظة الظاهرة</small>
+<h1>منصة التعيينات والتنقلات</h1>
+<p>النظام الإلكتروني لطلبات المعلمين البدلاء</p>
+</div>
+</div>
 </header>
 
 <main>
-
 <div class="notice">
-  <strong>المرحلة التجريبية:</strong>
-  تم ربط تسجيل الدخول بخدمة التحقق من صلاحيات
-  المستخدمين. البحث عن الموظفين وحفظ الطلبات
-  لم يُفعّلا بعد، ولا تُستخدم بيانات موظفين حقيقية
-  في التجارب.
+<strong>مرحلة الاختبار:</strong>
+بوابة التقدم للعمل معلمًا بديلًا مرتبطة بخادم Cloudflare.
+أما طلبات توفير البديل من المدارس فما زالت للمعاينة فقط.
+لا تستخدم بيانات حقيقية قبل اكتمال الاختبارات الأمنية والوظيفية.
 </div>
 
-<!-- تسجيل الدخول -->
 <section class="panel" id="loginPanel">
-  <span class="pill">الدخول الآمن</span>
-  <h2>تسجيل الدخول إلى المنصة</h2>
-  <p>الدخول متاح للحسابات المعتمدة فقط.</p>
-
-  <form id="loginForm">
-    <div class="fields">
-      <div>
-        <label for="email">البريد الإلكتروني</label>
-        <input id="email" type="email"
-          autocomplete="username" required>
-      </div>
-      <div>
-        <label for="password">كلمة المرور</label>
-        <input id="password" type="password"
-          autocomplete="current-password" required>
-      </div>
-    </div>
-    <div class="actions">
-      <button class="btn" id="loginBtn"
-        type="submit" disabled>
-        تسجيل الدخول
-      </button>
-    </div>
-    <div class="status" id="loginStatus"
-      role="status" aria-live="polite">
-      جارٍ تهيئة خدمة تسجيل الدخول…
-    </div>
-  </form>
+<span class="pill">الدخول الآمن</span>
+<h2>تسجيل الدخول</h2>
+<form id="loginForm">
+<div class="fields">
+<div>
+<label>البريد الإلكتروني</label>
+<input id="email" type="email" autocomplete="username" required>
+</div>
+<div>
+<label>كلمة المرور</label>
+<input id="password" type="password"
+  autocomplete="current-password" required>
+</div>
+</div>
+<div class="actions">
+<button class="btn" id="loginBtn" type="submit" disabled>
+تسجيل الدخول
+</button>
+</div>
+<div class="status" id="loginStatus"></div>
+</form>
 </section>
 
-<!-- بيانات المستخدم -->
+<section class="panel" id="registerPanel">
+<span class="pill">بوابة المتقدمين</span>
+<h2>إنشاء حساب للتقدم للعمل معلمًا بديلًا</h2>
+<p>أنشئ حسابًا بالبريد الإلكتروني، ثم أكد البريد
+قبل تقديم طلبك.</p>
+<form id="registerForm">
+<div class="fields">
+<div>
+<label>البريد الإلكتروني</label>
+<input id="registerEmail" type="email" required>
+</div>
+<div>
+<label>كلمة المرور (8 أحرف على الأقل)</label>
+<input id="registerPassword" type="password"
+  minlength="8" required>
+</div>
+</div>
+<div class="actions">
+<button class="btn" id="registerBtn" type="submit" disabled>
+إنشاء حساب وإرسال رسالة التحقق
+</button>
+</div>
+<div class="status" id="registerStatus"></div>
+</form>
+</section>
+
 <div class="identity" id="identity" hidden>
-  <div>
-    <strong>تم تسجيل الدخول</strong>
-    <div id="userEmail"></div>
-    <small id="identityNote">
-      جارٍ التحقق من الصلاحيات…
-    </small>
-  </div>
-  <button class="btn secondary"
-    id="logoutBtn" type="button">
-    تسجيل الخروج
-  </button>
+<div>
+<strong>تم تسجيل الدخول</strong>
+<div id="userEmail"></div>
+<small id="identityNote">جارٍ التحقق من الصلاحيات…</small>
+</div>
+<div class="actions">
+<button class="btn secondary" id="refreshBtn">
+تحديث حالة الحساب
+</button>
+<button class="btn secondary" id="logoutBtn">
+تسجيل الخروج
+</button>
+</div>
 </div>
 
-<!-- مساحة العمل -->
 <div id="workspace" hidden>
-
 <section class="grid">
-
-  <button class="tile active" type="button"
-    data-view="request">
-    <span class="symbol">🏫</span>
-    <strong>تقديم طلب معلم بديل</strong>
-    <span>
-      تسجيل بيانات المعلم المجاز
-      واستكمال تفاصيل الإجازة.
-    </span>
-  </button>
-
-  <button class="tile" type="button"
-    data-view="follow">
-    <span class="symbol">📋</span>
-    <strong>متابعة طلبات المدرسة</strong>
-    <span>
-      متابعة حالة طلبات المعلمين البدلاء
-      الخاصة بالمدرسة.
-    </span>
-  </button>
-
-  <button class="tile" type="button"
-    data-view="admin">
-    <span class="symbol">🏛️</span>
-    <strong>قسم التعيينات والتنقلات</strong>
-    <span>
-      مراجعة الطلبات وإدارة التكليفات
-      وفق الصلاحيات المعتمدة.
-    </span>
-  </button>
-
+<button class="tile" data-view="request">
+<span class="symbol">🏫</span>
+<strong>تقديم طلب معلم بديل</strong>
+<span>بوابة مديري المدارس لطلبات توفير البديل.</span>
+</button>
+<button class="tile" data-view="follow">
+<span class="symbol">📋</span>
+<strong>متابعة طلبات المدرسة</strong>
+<span>متابعة طلبات توفير البديل للمدرسة.</span>
+</button>
+<button class="tile" data-view="applicant">
+<span class="symbol">📝</span>
+<strong>طلب التقدم للعمل معلمًا بديلًا</strong>
+<span>تقديم الطلب ومتابعة حالته.</span>
+</button>
+<button class="tile" data-view="reviewer">
+<span class="symbol">📊</span>
+<strong>دائرة تقويم الأداء المدرسي</strong>
+<span>مراجعة المتقدمين وتقييم المقابلات.</span>
+</button>
+<button class="tile" data-view="admin">
+<span class="symbol">🏛️</span>
+<strong>قسم التعيينات والتنقلات</strong>
+<span>متابعة الطلبات واتخاذ قرارات التكليف.</span>
+</button>
 </section>
 
-<!-- طلب معلم بديل -->
-<section class="panel" id="request">
-
-  <span class="pill">بوابة المدارس</span>
-  <h2>طلب توفير معلم بديل</h2>
-  <p>
-    نموذج معاينة فقط. لن يتم إرسال البيانات
-    أو حفظها في هذه المرحلة.
-  </p>
-
-  <form id="requestForm">
-
-    <div class="fields">
-
-      <div>
-        <label for="employeeNumber">
-          الرقم الوظيفي للمعلم المجاز
-        </label>
-        <input id="employeeNumber"
-          type="text" inputmode="numeric"
-          maxlength="15" autocomplete="off"
-          placeholder="مثال تجريبي: 123456"
-          required>
-        <div class="status" id="lookupStatus">
-          استخدم رقمًا تجريبيًا فقط:
-          123456 أو 234567 أو 345678
-        </div>
-      </div>
-
-      <div>
-        <label for="schoolName">اسم المدرسة</label>
-        <input id="schoolName" readonly required>
-      </div>
-
-      <div>
-        <label for="employeeName">
-          اسم المعلم المجاز
-        </label>
-        <input id="employeeName" readonly required>
-      </div>
-
-      <div>
-        <label for="job">الوظيفة / التخصص</label>
-        <input id="job" readonly required>
-      </div>
-
-      <div>
-        <label for="leaveType">نوع الإجازة</label>
-        <select id="leaveType" required>
-          <option value="">اختر نوع الإجازة</option>
-          <option>إجازة مرضية</option>
-          <option>إجازة وضع</option>
-          <option>إجازة بدون راتب</option>
-          <option>إجازة مرافقة زوج/زوجة</option>
-          <option>إجازة حج</option>
-          <option>إجازة عدة</option>
-          <option>إجازة تفرغ</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="grades">الصفوف</label>
-        <input id="grades" type="text"
-          placeholder="مثال: الخامس إلى الثامن"
-          required>
-      </div>
-
-      <div>
-        <label for="startDate">بداية الإجازة</label>
-        <input id="startDate" type="date" required>
-      </div>
-
-      <div>
-        <label for="endDate">نهاية الإجازة</label>
-        <input id="endDate" type="date" required>
-      </div>
-
-      <div class="wide">
-        <label for="notes">ملاحظات إضافية</label>
-        <textarea id="notes" rows="3"></textarea>
-      </div>
-
-    </div>
-
-    <div class="actions">
-      <button class="btn" type="submit">
-        معاينة الطلب
-      </button>
-      <button class="btn secondary"
-        type="reset">
-        مسح البيانات
-      </button>
-    </div>
-
-  </form>
-
-  <div class="preview" id="requestPreview" hidden>
-    <span class="pill">معاينة تجريبية</span>
-    <h3>تفاصيل الطلب</h3>
-    <p class="error">
-      لم يُحفظ هذا الطلب ولم يُرسل إلى القسم.
-    </p>
-    <div class="preview-grid"
-      id="previewContent"></div>
-    <div class="actions">
-      <button class="btn secondary"
-        id="editRequest" type="button">
-        العودة للتعديل
-      </button>
-    </div>
-  </div>
-
+<section class="panel" id="request" hidden>
+<span class="pill">بوابة المدارس</span>
+<h2>طلب توفير معلم بديل</h2>
+<p>نموذج تجريبي للمعاينة فقط. لا يحفظ البيانات.</p>
+<form id="requestForm">
+<div class="fields">
+<div>
+<label>الرقم الوظيفي للمعلم المجاز</label>
+<input id="employeeNumber" maxlength="15"
+  inputmode="numeric" required>
+<div class="status" id="lookupStatus">
+الأرقام التجريبية: 123456 أو 234567 أو 345678
+</div>
+</div>
+<div>
+<label>اسم المدرسة</label>
+<input id="schoolName" readonly required>
+</div>
+<div>
+<label>اسم المعلم المجاز</label>
+<input id="employeeName" readonly required>
+</div>
+<div>
+<label>الوظيفة / التخصص</label>
+<input id="job" readonly required>
+</div>
+<div>
+<label>نوع الإجازة</label>
+<select id="leaveType" required>
+<option value="">اختر نوع الإجازة</option>
+<option>إجازة مرضية</option>
+<option>إجازة وضع</option>
+<option>إجازة بدون راتب</option>
+<option>إجازة مرافقة زوج/زوجة</option>
+<option>إجازة حج</option>
+<option>إجازة عدة</option>
+<option>إجازة تفرغ</option>
+</select>
+</div>
+<div>
+<label>الصفوف</label>
+<input id="grades" required>
+</div>
+<div>
+<label>بداية الإجازة</label>
+<input id="startDate" type="date" required>
+</div>
+<div>
+<label>نهاية الإجازة</label>
+<input id="endDate" type="date" required>
+</div>
+<div class="wide">
+<label>ملاحظات إضافية</label>
+<textarea id="notes" rows="3"></textarea>
+</div>
+</div>
+<div class="actions">
+<button class="btn" type="submit">معاينة الطلب</button>
+<button class="btn secondary" type="reset">مسح البيانات</button>
+</div>
+</form>
+<div class="preview" id="requestPreview" hidden>
+<h3>معاينة الطلب</h3>
+<p class="error">لم يُحفظ هذا الطلب ولم يُرسل إلى القسم.</p>
+<div class="preview-grid" id="previewContent"></div>
+</div>
 </section>
 
-<!-- متابعة المدرسة -->
 <section class="panel" id="follow" hidden>
-  <span class="pill">بوابة المدارس</span>
-  <h2>متابعة طلبات المدرسة</h2>
-  <p>
-    تم تخصيص هذه البوابة لمدير المدرسة
-    بعد التحقق من صلاحياته.
-  </p>
-  <div class="notice">
-    عرض الطلبات الحقيقية قيد الربط
-    مع قاعدة البيانات.
-  </div>
+<span class="pill">بوابة المدارس</span>
+<h2>متابعة طلبات المدرسة</h2>
+<div class="notice">
+ربط طلبات المدارس بقاعدة البيانات لم يكتمل بعد.
+</div>
 </section>
 
-<!-- قسم التعيينات -->
+<section class="panel" id="applicant" hidden>
+<span class="pill">بوابة المتقدمين</span>
+<h2>التقدم للعمل معلمًا بديلًا</h2>
+<div id="verifyBox" class="notice" hidden>
+يجب تأكيد البريد الإلكتروني قبل تقديم الطلب.
+<div class="actions">
+<button class="btn secondary" id="resendVerification">
+إعادة إرسال رسالة التحقق
+</button>
+</div>
+</div>
+<div class="status" id="applicantStatus"></div>
+
+<div id="ownRequest" hidden>
+<h3>متابعة طلبك</h3>
+<div class="preview-grid" id="ownRequestData"></div>
+</div>
+
+<div id="applicantDetails" hidden>
+<p>أدخل بياناتك كما هي في الوثائق الرسمية.</p>
+<form id="applicantForm">
+<div class="fields">
+<div>
+<label>الاسم الرباعي</label>
+<input id="fullName" maxlength="120" required>
+</div>
+<div>
+<label>الرقم المدني</label>
+<input id="civilId" inputmode="numeric"
+  pattern="[0-9]{5,20}" maxlength="20" required>
+</div>
+<div>
+<label>رقم الهاتف</label>
+<input id="phone" type="tel" maxlength="20" required>
+</div>
+<div>
+<label>الجنس</label>
+<select id="gender" required>
+<option value="">اختر</option>
+<option>ذكر</option>
+<option>أنثى</option>
+</select>
+</div>
+<div>
+<label>تاريخ الميلاد</label>
+<input id="birthDate" type="date" required>
+</div>
+<div>
+<label>المؤهل الدراسي</label>
+<input id="qualification" maxlength="120" required>
+</div>
+<div>
+<label>التخصص</label>
+<input id="specialization" maxlength="120" required>
+</div>
+<div>
+<label>سنة التخرج</label>
+<input id="graduationYear" type="number"
+  min="1950" max="2030" required>
+</div>
+<div class="wide">
+<label>الولاية</label>
+<input id="wilayat" maxlength="80" required>
+</div>
+</div>
+<div class="actions">
+<button class="btn" id="submitApplicant" type="submit">
+تقديم الطلب
+</button>
+</div>
+</form>
+</div>
+</section>
+
+<section class="panel" id="reviewer" hidden>
+<span class="pill">دائرة تقويم الأداء المدرسي</span>
+<h2>طلبات المتقدمين والمقابلات</h2>
+<div class="actions">
+<button class="btn secondary" id="loadReview">
+تحديث قائمة الطلبات
+</button>
+</div>
+<div class="status" id="reviewStatus"></div>
+<div class="table-wrap" id="reviewTable"></div>
+
+<form id="reviewForm" hidden>
+<h3>تقييم المقابلة</h3>
+<p>رقم الطلب: <strong id="reviewIdLabel"></strong></p>
+<input type="hidden" id="reviewRequestId">
+<div class="fields">
+<div>
+<label>موعد المقابلة</label>
+<input type="datetime-local" id="interviewAt">
+</div>
+<div>
+<label>نتيجة المقابلة</label>
+<select id="reviewResult" required>
+<option value="">اختر النتيجة</option>
+<option>اجتاز</option>
+<option>لم يجتز</option>
+<option>مؤجل</option>
+</select>
+</div>
+<div>
+<label>درجة المقابلة من 100</label>
+<input type="number" id="reviewScore"
+  min="0" max="100" required>
+</div>
+<div class="wide">
+<label>ملاحظات دائرة تقويم الأداء المدرسي</label>
+<textarea id="reviewNotes" maxlength="1000"></textarea>
+</div>
+</div>
+<div class="actions">
+<button class="btn" type="submit">حفظ التقييم</button>
+</div>
+</form>
+</section>
+
 <section class="panel" id="admin" hidden>
-  <span class="pill">بوابة القسم</span>
-  <h2>قسم التعيينات والتنقلات</h2>
-  <p>
-    هذه البوابة مخصصة لمسؤول القسم
-    المخوّل في قاعدة مستخدمي المنصة.
-  </p>
-  <div class="notice">
-    استعراض طلبات المدارس واعتماد
-    التكليفات قيد الربط مع قاعدة البيانات.
-  </div>
+<span class="pill">قسم التعيينات والتنقلات</span>
+<h2>طلبات المتقدمين وقرارات التكليف</h2>
+<div class="actions">
+<button class="btn secondary" id="loadAdmin">
+تحديث قائمة الطلبات
+</button>
+</div>
+<div class="status" id="adminStatus"></div>
+<div class="table-wrap" id="adminTable"></div>
+
+<form id="decisionForm" hidden>
+<h3>قرار قسم التعيينات والتنقلات</h3>
+<p>رقم الطلب: <strong id="decisionIdLabel"></strong></p>
+<input type="hidden" id="decisionRequestId">
+<div class="fields">
+<div>
+<label>القرار</label>
+<select id="decision" required>
+<option value="">اختر القرار</option>
+<option>موافقة</option>
+<option>رفض</option>
+<option>قيد الانتظار</option>
+</select>
+</div>
+<div>
+<label>المدرسة المكلف بها</label>
+<input id="assignedSchool" maxlength="150">
+</div>
+<div>
+<label>تاريخ التكليف</label>
+<input type="date" id="assignmentDate">
+</div>
+<div class="wide">
+<label>ملاحظات القسم</label>
+<textarea id="decisionNotes" maxlength="1000"></textarea>
+</div>
+</div>
+<div class="actions">
+<button class="btn" type="submit">حفظ القرار</button>
+</div>
+</form>
 </section>
 
 </div>
 </main>
 
 <footer>
-  المديرية العامة للتعليم بمحافظة الظاهرة
-  <div>منصة التعيينات والتنقلات</div>
+المديرية العامة للتعليم بمحافظة الظاهرة
+<div>منصة التعيينات والتنقلات</div>
 </footer>
 
-<!-- وظائف الواجهة -->
-<script>
-const workspace =
-  document.getElementById('workspace');
-
-const tiles =
-  [...document.querySelectorAll('.tile')];
-
-const panels = [
-  document.getElementById('request'),
-  document.getElementById('follow'),
-  document.getElementById('admin')
-];
-
-function showView(id) {
-  const tile = tiles.find(
-    t => t.dataset.view === id && !t.hidden
-  );
-
-  if (!tile) return;
-
-  panels.forEach(panel => {
-    panel.hidden = panel.id !== id;
-  });
-
-  tiles.forEach(t => {
-    t.classList.toggle(
-      'active', t.dataset.view === id
-    );
-  });
-}
-
-tiles.forEach(tile => {
-  tile.addEventListener('click', () => {
-    showView(tile.dataset.view);
-  });
-});
-
-/*
-  بيانات تجريبية افتراضية فقط.
-  ليست قاعدة بيانات الموظفين الحقيقية.
-*/
-const demoEmployees = {
-  "123456": {
-    name:"أحمد بن محمد",
-    school:"مدرسة الأفق التجريبية",
-    job:"معلم رياضيات"
-  },
-  "234567": {
-    name:"خالد بن سالم",
-    school:"مدرسة المستقبل التجريبية",
-    job:"معلم لغة عربية"
-  },
-  "345678": {
-    name:"محمد بن علي",
-    school:"مدرسة الإبداع التجريبية",
-    job:"معلم علوم"
-  }
-};
-
-const requestForm =
-  document.getElementById('requestForm');
-
-const employeeNumber =
-  document.getElementById('employeeNumber');
-
-const employeeName =
-  document.getElementById('employeeName');
-
-const schoolName =
-  document.getElementById('schoolName');
-
-const job =
-  document.getElementById('job');
-
-const lookupStatus =
-  document.getElementById('lookupStatus');
-
-const preview =
-  document.getElementById('requestPreview');
-
-const previewContent =
-  document.getElementById('previewContent');
-
-function lookupEmployee() {
-  const number = employeeNumber.value.trim();
-
-  employeeName.value = '';
-  schoolName.value = '';
-  job.value = '';
-  preview.hidden = true;
-
-  const employee = demoEmployees[number];
-
-  if (!employee) {
-    lookupStatus.textContent = number
-      ? 'الرقم غير موجود في البيانات التجريبية.'
-      : 'استخدم 123456 أو 234567 أو 345678.';
-    lookupStatus.className =
-      'status' + (number ? ' error' : '');
-    return;
-  }
-
-  employeeName.value = employee.name;
-  schoolName.value = employee.school;
-  job.value = employee.job;
-
-  lookupStatus.textContent =
-    'تم العثور على بيانات تجريبية.';
-  lookupStatus.className = 'status ok';
-}
-
-employeeNumber.addEventListener(
-  'input', lookupEmployee
-);
-
-const fields = [
-  ['الرقم الوظيفي','employeeNumber'],
-  ['اسم المدرسة','schoolName'],
-  ['اسم المعلم','employeeName'],
-  ['الوظيفة','job'],
-  ['نوع الإجازة','leaveType'],
-  ['الصفوف','grades'],
-  ['بداية الإجازة','startDate'],
-  ['نهاية الإجازة','endDate'],
-  ['ملاحظات','notes']
-];
-
-requestForm.addEventListener('submit', e => {
-  e.preventDefault();
-
-  const number = employeeNumber.value.trim();
-
-  if (!demoEmployees[number]) {
-    lookupStatus.textContent =
-      'أدخل رقمًا وظيفيًا تجريبيًا صحيحًا.';
-    lookupStatus.className = 'status error';
-    return;
-  }
-
-  if (!requestForm.reportValidity()) return;
-
-  const start =
-    document.getElementById('startDate').value;
-
-  const end =
-    document.getElementById('endDate').value;
-
-  if (end < start) {
-    alert('تاريخ نهاية الإجازة يسبق بدايتها.');
-    return;
-  }
-
-  previewContent.replaceChildren();
-
-  fields.forEach(([label,id]) => {
-    const item = document.createElement('div');
-    item.className = 'preview-item';
-
-    const title = document.createElement('small');
-    title.textContent = label;
-
-    const value = document.createElement('strong');
-    value.textContent =
-      document.getElementById(id).value || '—';
-
-    item.append(title,value);
-    previewContent.appendChild(item);
-  });
-
-  preview.hidden = false;
-  preview.scrollIntoView({
-    behavior:'smooth',
-    block:'start'
-  });
-});
-
-requestForm.addEventListener('reset', () => {
-  preview.hidden = true;
-  setTimeout(lookupEmployee,0);
-});
-
-document.getElementById('editRequest')
-  .addEventListener('click', () => {
-    preview.hidden = true;
-  });
-</script>
-
-<!-- Firebase + Cloudflare -->
 <script type="module">
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+import {initializeApp} from
+"https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 
 import {
-  getAuth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signOut
-} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+ getAuth,onAuthStateChanged,signInWithEmailAndPassword,
+ createUserWithEmailAndPassword,sendEmailVerification,
+ signOut,reload
+} from
+"https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey:"AIzaSyD3ll7-HKlLryNtilSXtkb_FBG2Z4WG-AQ",
-  authDomain:"al-dhahirah-appointments.firebaseapp.com",
-  projectId:"al-dhahirah-appointments",
-  storageBucket:"al-dhahirah-appointments.firebasestorage.app",
-  messagingSenderId:"1064117095409",
-  appId:"1:1064117095409:web:2518c102d97264bd779250"
+const firebaseConfig={
+ apiKey:"AIzaSyD3ll7-HKlLryNtilSXtkb_FBG2Z4WG-AQ",
+ authDomain:"al-dhahirah-appointments.firebaseapp.com",
+ projectId:"al-dhahirah-appointments",
+ storageBucket:"al-dhahirah-appointments.firebasestorage.app",
+ messagingSenderId:"1064117095409",
+ appId:"1:1064117095409:web:2518c102d97264bd779250"
 };
 
-const API =
-  "https://aldhahira-secure-api.sultan-alwaeli.workers.dev";
+const API=
+"https://aldhahira-secure-api.sultan-alwaeli.workers.dev";
 
-const loginForm =
-  document.getElementById('loginForm');
+const auth=getAuth(initializeApp(firebaseConfig));
+const el=id=>document.getElementById(id);
+const tiles=[...document.querySelectorAll(".tile")];
+const views=["request","follow","applicant","reviewer","admin"];
+let sequence=0;
 
-const loginPanel =
-  document.getElementById('loginPanel');
-
-const loginBtn =
-  document.getElementById('loginBtn');
-
-const loginStatus =
-  document.getElementById('loginStatus');
-
-const identity =
-  document.getElementById('identity');
-
-const identityNote =
-  document.getElementById('identityNote');
-
-const userEmail =
-  document.getElementById('userEmail');
-
-let auth;
-let sequence = 0;
-
-function setStatus(message,error=false) {
-  loginStatus.textContent = message;
-  loginStatus.className =
-    'status' + (error ? ' error' : '');
+function status(id,message,error=false){
+ const node=el(id);
+ node.textContent=message;
+ node.className="status "+(error?"error":"ok");
 }
 
-function lockWorkspace() {
-  workspace.hidden = true;
-  tiles.forEach(tile => {
-    tile.hidden = true;
+function showView(id){
+ if(!views.includes(id))return;
+ const tile=tiles.find(t=>t.dataset.view===id&&!t.hidden);
+ if(!tile)return;
+ views.forEach(view=>el(view).hidden=view!==id);
+ tiles.forEach(t=>t.classList.toggle("active",t===tile));
+}
+
+tiles.forEach(tile=>{
+ tile.addEventListener("click",()=>showView(tile.dataset.view));
+});
+
+function resetViews(){
+ el("workspace").hidden=true;
+ views.forEach(view=>el(view).hidden=true);
+ tiles.forEach(tile=>tile.hidden=true);
+}
+
+function authorize(role,note){
+ const allowed={
+  principal:["request","follow"],
+  applicant:["applicant"],
+  reviewer:["reviewer"],
+  admin:["admin"]
+ };
+ tiles.forEach(tile=>{
+  tile.hidden=!(allowed[role]||[]).includes(tile.dataset.view);
+ });
+ el("identityNote").textContent=note;
+ el("workspace").hidden=false;
+ showView(allowed[role][0]);
+}
+
+async function callApi(path,body={}){
+ const user=auth.currentUser;
+ if(!user)throw new Error("يجب تسجيل الدخول أولًا");
+ const token=await user.getIdToken();
+ let response;
+ try{
+  response=await fetch(API+path,{
+   method:"POST",
+   headers:{
+    Authorization:"Bearer "+token,
+    "Content-Type":"application/json"
+   },
+   body:JSON.stringify(body),
+   cache:"no-store"
   });
+ }catch{
+  throw new Error("تعذر الاتصال بالخادم");
+ }
+ let data;
+ try{data=await response.json()}
+ catch{throw new Error("استجابة الخادم غير صالحة")}
+ if(!response.ok||data.success!==true){
+  const error=new Error(data.message||"تعذر تنفيذ العملية");
+  error.httpStatus=response.status;
+  throw error;
+ }
+ return data;
 }
 
-async function getPermissions(user) {
-  const token = await user.getIdToken();
-
-  const response = await fetch(
-    API + "/my-permissions",
-    {
-      method:"POST",
-      headers:{
-        "Authorization":"Bearer " + token,
-        "Content-Type":"application/json"
-      },
-      body:"{}",
-      cache:"no-store"
-    }
-  );
-
-  let result;
-
-  try {
-    result = await response.json();
-  } catch {
-    throw new Error(
-      "تعذر قراءة استجابة الخادم"
-    );
-  }
-
-  if (
-    !response.ok ||
-    result.success !== true ||
-    result.authorized !== true
-  ) {
-    throw new Error(
-      result.message ||
-      "الحساب غير مخوّل لاستخدام المنصة"
-    );
-  }
-
-  return result;
+function addDetail(container,label,value){
+ const item=document.createElement("div");
+ item.className="preview-item";
+ const small=document.createElement("small");
+ small.textContent=label;
+ const strong=document.createElement("strong");
+ strong.textContent=value==null||value===""?"—":String(value);
+ item.append(small,strong);
+ container.append(item);
 }
 
-function authorizeWorkspace(data) {
-  const principal =
-    data.role === "مدير مدرسة";
+// طلبات المدارس: نموذج تجريبي فقط
+const demoEmployees={
+ "123456":{name:"أحمد بن محمد",job:"معلم رياضيات"},
+ "234567":{name:"خالد بن سالم",job:"معلم لغة عربية"},
+ "345678":{name:"محمد بن علي",job:"معلم علوم"}
+};
 
-  const admin =
-    data.role === "مسؤول القسم";
+el("employeeNumber").addEventListener("input",()=>{
+ const number=el("employeeNumber").value.trim();
+ const employee=demoEmployees[number];
+ el("employeeName").value=employee?.name||"";
+ el("job").value=employee?.job||"";
+ el("schoolName").value=employee?"مدرسة تجريبية":"";
+ el("lookupStatus").textContent=employee
+  ?"تم العثور على بيانات تجريبية."
+  :"الرقم غير موجود في البيانات التجريبية.";
+ el("requestPreview").hidden=true;
+});
 
-  if (!principal && !admin) {
-    throw new Error("الدور الوظيفي غير معتمد");
-  }
+el("requestForm").addEventListener("submit",event=>{
+ event.preventDefault();
+ if(!el("requestForm").reportValidity())return;
+ if(el("endDate").value<el("startDate").value){
+  alert("تاريخ نهاية الإجازة يسبق بدايتها");
+  return;
+ }
+ const fields=[
+  ["الرقم الوظيفي","employeeNumber"],
+  ["المدرسة","schoolName"],
+  ["المعلم","employeeName"],
+  ["التخصص","job"],
+  ["نوع الإجازة","leaveType"],
+  ["الصفوف","grades"],
+  ["بداية الإجازة","startDate"],
+  ["نهاية الإجازة","endDate"],
+  ["ملاحظات","notes"]
+ ];
+ const container=el("previewContent");
+ container.replaceChildren();
+ fields.forEach(([label,id])=>{
+  addDetail(container,label,el(id).value);
+ });
+ el("requestPreview").hidden=false;
+});
 
-  const permissions = new Set(
-    Array.isArray(data.permissions)
-      ? data.permissions
-      : []
-  );
+el("requestForm").addEventListener("reset",()=>{
+ el("requestPreview").hidden=true;
+});
 
-  if (principal) {
-    if (
-      !data.schoolCode ||
-      !permissions.has("requests:read_own")
-    ) {
-      throw new Error(
-        "صلاحيات مدير المدرسة غير مكتملة"
-      );
-    }
-  }
+// بوابة المتقدم
+async function loadOwn(){
+ const user=auth.currentUser;
+ if(!user)return;
+ el("verifyBox").hidden=true;
+ el("applicantDetails").hidden=true;
+ el("ownRequest").hidden=true;
+ await reload(user);
 
-  if (admin) {
-    if (!permissions.has("requests:read_all")) {
-      throw new Error(
-        "صلاحيات مسؤول القسم غير مكتملة"
-      );
-    }
-  }
+ if(!user.emailVerified){
+  el("verifyBox").hidden=false;
+  status("applicantStatus",
+   "يجب تأكيد البريد الإلكتروني قبل تقديم الطلب.",true);
+  return;
+ }
 
-  tiles.forEach(tile => {
-    if (principal) {
-      tile.hidden =
-        tile.dataset.view === "admin";
-    } else {
-      tile.hidden =
-        tile.dataset.view !== "admin";
-    }
+ const data=await callApi("/applicant/my-request");
+ if(data.request){
+  const r=data.request;
+  const container=el("ownRequestData");
+  container.replaceChildren();
+  [
+   ["رقم الطلب",r.requestId],
+   ["تاريخ التقديم",r.submittedAt],
+   ["الاسم",r.name],
+   ["التخصص",r.specialization],
+   ["حالة الطلب",r.status],
+   ["موعد المقابلة",r.interviewAt],
+   ["نتيجة المقابلة",r.interviewResult],
+   ["قرار القسم",r.decision],
+   ["المدرسة المكلف بها",r.assignedSchool],
+   ["تاريخ التكليف",r.assignmentDate]
+  ].forEach(([a,b])=>addDetail(container,a,b));
+  el("ownRequest").hidden=false;
+  status("applicantStatus","يمكنك متابعة حالة طلبك.");
+ }else{
+  el("applicantDetails").hidden=false;
+  status("applicantStatus","لم يُسجل طلب لهذا الحساب بعد.");
+ }
+}
+
+el("applicantForm").addEventListener("submit",async event=>{
+ event.preventDefault();
+ if(!el("applicantForm").reportValidity())return;
+ const button=el("submitApplicant");
+ button.disabled=true;
+ const names=[
+  "fullName","civilId","phone","gender","birthDate",
+  "qualification","specialization","graduationYear","wilayat"
+ ];
+ const body={};
+ names.forEach(name=>body[name]=el(name).value.trim());
+ body.graduationYear=Number(body.graduationYear);
+ status("applicantStatus","جارٍ إرسال الطلب...");
+ try{
+  const result=await callApi("/applicant/submit",body);
+  status("applicantStatus",
+   "تم حفظ الطلب. رقم الطلب: "+result.requestId);
+  await loadOwn();
+ }catch(error){
+  status("applicantStatus",error.message,true);
+ }finally{
+  button.disabled=false;
+ }
+});
+
+el("resendVerification").addEventListener("click",async()=>{
+ try{
+  await sendEmailVerification(auth.currentUser);
+  status("applicantStatus","تم إرسال رسالة التحقق.");
+ }catch{
+  status("applicantStatus",
+   "تعذر إرسال الرسالة. حاول لاحقًا.",true);
+ }
+});
+
+// قوائم الموظفين
+function renderTable(kind,records){
+ const container=el(kind==="reviewer"?"reviewTable":"adminTable");
+ container.replaceChildren();
+ if(!records.length){
+  container.textContent="لا توجد طلبات لعرضها.";
+  return;
+ }
+
+ const table=document.createElement("table");
+ const thead=document.createElement("thead");
+ const headRow=document.createElement("tr");
+ const columns=[
+  ["requestId","رقم الطلب"],
+  ["name","الاسم"],
+  ["specialization","التخصص"],
+  ["status","الحالة"],
+  ["interviewResult","نتيجة المقابلة"]
+ ];
+ if(kind==="admin")columns.push(["decision","قرار القسم"]);
+ columns.push(["action","الإجراء"]);
+
+ columns.forEach(([,title])=>{
+  const th=document.createElement("th");
+  th.textContent=title;
+  headRow.append(th);
+ });
+ thead.append(headRow);
+ table.append(thead);
+
+ const tbody=document.createElement("tbody");
+ records.forEach(record=>{
+  const row=document.createElement("tr");
+  columns.forEach(([key])=>{
+   const cell=document.createElement("td");
+   if(key!=="action"){
+    cell.textContent=record[key]??"—";
+   }else{
+    const button=document.createElement("button");
+    button.className="btn secondary";
+    button.textContent=kind==="reviewer"?"تقييم":"اتخاذ قرار";
+    button.addEventListener("click",()=>{
+     if(kind==="reviewer"){
+      el("reviewForm").hidden=false;
+      el("reviewRequestId").value=record.requestId;
+      el("reviewIdLabel").textContent=record.requestId;
+      el("reviewForm").scrollIntoView({behavior:"smooth"});
+     }else{
+      el("decisionForm").hidden=false;
+      el("decisionRequestId").value=record.requestId;
+      el("decisionIdLabel").textContent=record.requestId;
+      el("decisionForm").scrollIntoView({behavior:"smooth"});
+     }
+    });
+    cell.append(button);
+   }
+   row.append(cell);
   });
-
-  identityNote.textContent = principal
-    ? "الدور: مدير مدرسة — " +
-      (data.schoolName || "مدرسة معتمدة")
-    : "الدور: مسؤول القسم";
-
-  workspace.hidden = false;
-
-  showView(principal ? "request" : "admin");
+  tbody.append(row);
+ });
+ table.append(tbody);
+ container.append(table);
 }
 
-try {
-  auth = getAuth(
-    initializeApp(firebaseConfig)
-  );
-
-  onAuthStateChanged(
-    auth,
-    async user => {
-      const current = ++sequence;
-
-      lockWorkspace();
-
-      identity.hidden = !user;
-      loginPanel.hidden = !!user;
-      userEmail.textContent =
-        user?.email || "";
-
-      if (!user) {
-        loginBtn.disabled = false;
-        setStatus(
-          "أدخل بيانات حسابك المعتمد."
-        );
-        return;
-      }
-
-      document.getElementById(
-        'password'
-      ).value = "";
-
-      identityNote.textContent =
-        "جارٍ التحقق من الصلاحيات…";
-
-      try {
-        const permissions =
-          await getPermissions(user);
-
-        if (
-          current !== sequence ||
-          auth.currentUser?.uid !== user.uid
-        ) return;
-
-        authorizeWorkspace(permissions);
-
-      } catch (error) {
-        if (current !== sequence) return;
-
-        identityNote.textContent =
-          "تعذر اعتماد الصلاحيات: " +
-          error.message;
-
-        lockWorkspace();
-      }
-    },
-    () => {
-      lockWorkspace();
-      setStatus(
-        "تعذر التحقق من حالة تسجيل الدخول.",
-        true
-      );
-    }
-  );
-
-  loginForm.addEventListener(
-    'submit',
-    async event => {
-      event.preventDefault();
-
-      loginBtn.disabled = true;
-      setStatus(
-        "جارٍ تسجيل الدخول…"
-      );
-
-      try {
-        await signInWithEmailAndPassword(
-          auth,
-          document.getElementById(
-            'email'
-          ).value.trim(),
-          document.getElementById(
-            'password'
-          ).value
-        );
-      } catch (error) {
-        const messages = {
-          "auth/invalid-credential":
-            "بيانات الدخول غير صحيحة.",
-          "auth/invalid-email":
-            "البريد الإلكتروني غير صحيح.",
-          "auth/too-many-requests":
-            "محاولات كثيرة، حاول لاحقًا.",
-          "auth/network-request-failed":
-            "تعذر الاتصال بالخدمة.",
-          "auth/user-disabled":
-            "الحساب معطّل."
-        };
-
-        setStatus(
-          messages[error.code] ||
-          "تعذر تسجيل الدخول.",
-          true
-        );
-      } finally {
-        loginBtn.disabled = false;
-      }
-    }
-  );
-
-  document.getElementById(
-    'logoutBtn'
-  ).addEventListener(
-    'click',
-    async () => {
-      lockWorkspace();
-
-      try {
-        await signOut(auth);
-      } catch {
-        alert(
-          "تعذر تسجيل الخروج."
-        );
-      }
-    }
-  );
-
-} catch (error) {
-  lockWorkspace();
-  loginBtn.disabled = true;
-
-  setStatus(
-    "تعذر تهيئة Firebase.",
-    true
-  );
+async function loadStaff(kind){
+ const id=kind==="reviewer"?"reviewStatus":"adminStatus";
+ status(id,"جارٍ تحميل الطلبات...");
+ try{
+  const path=kind==="reviewer"
+   ?"/review/queue":"/admin/applicants";
+  const result=await callApi(path);
+  renderTable(kind,result.records||[]);
+  status(id,"تم تحميل "+(result.records||[]).length+" طلبًا.");
+ }catch(error){
+  status(id,error.message,true);
+ }
 }
+
+el("loadReview").addEventListener("click",()=>{
+ loadStaff("reviewer");
+});
+el("loadAdmin").addEventListener("click",()=>{
+ loadStaff("admin");
+});
+
+el("reviewForm").addEventListener("submit",async event=>{
+ event.preventDefault();
+ const button=event.submitter;
+ button.disabled=true;
+ try{
+  await callApi("/review/evaluate",{
+   requestId:el("reviewRequestId").value,
+   interviewAt:el("interviewAt").value,
+   result:el("reviewResult").value,
+   score:Number(el("reviewScore").value),
+   notes:el("reviewNotes").value
+  });
+  el("reviewForm").hidden=true;
+  await loadStaff("reviewer");
+  status("reviewStatus","تم حفظ تقييم المقابلة.");
+ }catch(error){
+  status("reviewStatus",error.message,true);
+ }finally{
+  button.disabled=false;
+ }
+});
+
+el("decisionForm").addEventListener("submit",async event=>{
+ event.preventDefault();
+ const button=event.submitter;
+ button.disabled=true;
+ try{
+  await callApi("/admin/decision",{
+   requestId:el("decisionRequestId").value,
+   decision:el("decision").value,
+   school:el("assignedSchool").value,
+   assignmentDate:el("assignmentDate").value,
+   notes:el("decisionNotes").value
+  });
+  el("decisionForm").hidden=true;
+  await loadStaff("admin");
+  status("adminStatus","تم حفظ قرار القسم.");
+ }catch(error){
+  status("adminStatus",error.message,true);
+ }finally{
+  button.disabled=false;
+ }
+});
+
+// تسجيل الدخول وتحديد الصلاحيات
+async function refreshAccount(){
+ const user=auth.currentUser;
+ if(!user)return;
+
+ const current=++sequence;
+ resetViews();
+ el("loginPanel").hidden=true;
+ el("registerPanel").hidden=true;
+ el("identity").hidden=false;
+ el("userEmail").textContent=user.email||"";
+ el("identityNote").textContent="جارٍ التحقق من الصلاحيات...";
+
+ try{
+  const result=await callApi("/my-permissions");
+  if(current!==sequence)return;
+  const permissions=new Set(result.permissions||[]);
+
+  if(result.role==="مدير مدرسة" &&
+     result.schoolCode &&
+     permissions.has("requests:read_own")){
+   authorize("principal",
+    "الدور: مدير مدرسة — "+(result.schoolName||""));
+   return;
+  }
+
+  if(result.role==="موظف تقويم الأداء" &&
+     permissions.has("applicants:review")){
+   authorize("reviewer","الدور: موظف تقويم الأداء المدرسي");
+   await loadStaff("reviewer");
+   return;
+  }
+
+  if(result.role==="مسؤول القسم" &&
+     permissions.has("applicants:decide")){
+   authorize("admin","الدور: مسؤول قسم التعيينات والتنقلات");
+   await loadStaff("admin");
+   return;
+  }
+
+  throw new Error("صلاحيات هذا الحساب غير مكتملة");
+
+ }catch(error){
+  if(current!==sequence)return;
+
+  // إظهار بوابة المتقدم لا يمنح أي صلاحية إدارية.
+  // الخادم يتحقق من كل طلب بصورة مستقلة.
+  if(error.httpStatus===403 &&
+     error.message==="الحساب غير مسجل أو غير نشط أو بلا صلاحيات"){
+   authorize("applicant","بوابة المتقدم للعمل معلمًا بديلًا");
+   try{
+    await loadOwn();
+   }catch(err){
+    status("applicantStatus",err.message,true);
+   }
+  }else{
+   el("identityNote").textContent=
+    "تعذر اعتماد الصلاحيات: "+error.message;
+  }
+ }
+}
+
+const firebaseMessages={
+ "auth/invalid-credential":"البريد أو كلمة المرور غير صحيحين.",
+ "auth/email-already-in-use":"البريد مسجل مسبقًا.",
+ "auth/invalid-email":"البريد الإلكتروني غير صحيح.",
+ "auth/weak-password":"كلمة المرور ضعيفة.",
+ "auth/too-many-requests":"محاولات كثيرة. حاول لاحقًا.",
+ "auth/network-request-failed":"تعذر الاتصال بالخدمة."
+};
+
+function firebaseError(error){
+ return firebaseMessages[error.code]||
+  "تعذر إتمام العملية. حاول مرة أخرى.";
+}
+
+el("loginBtn").disabled=false;
+el("registerBtn").disabled=false;
+
+el("loginForm").addEventListener("submit",async event=>{
+ event.preventDefault();
+ const button=el("loginBtn");
+ button.disabled=true;
+ status("loginStatus","جارٍ تسجيل الدخول...");
+ try{
+  await signInWithEmailAndPassword(
+   auth,el("email").value.trim(),el("password").value
+  );
+  el("password").value="";
+ }catch(error){
+  status("loginStatus",firebaseError(error),true);
+ }finally{
+  button.disabled=false;
+ }
+});
+
+el("registerForm").addEventListener("submit",async event=>{
+ event.preventDefault();
+ const button=el("registerBtn");
+ button.disabled=true;
+ status("registerStatus","جارٍ إنشاء الحساب...");
+ try{
+  const result=await createUserWithEmailAndPassword(
+   auth,
+   el("registerEmail").value.trim(),
+   el("registerPassword").value
+  );
+  await sendEmailVerification(result.user);
+  el("registerPassword").value="";
+  status("registerStatus",
+   "تم إنشاء الحساب وإرسال رسالة تأكيد البريد الإلكتروني.");
+ }catch(error){
+  status("registerStatus",firebaseError(error),true);
+ }finally{
+  button.disabled=false;
+ }
+});
+
+el("logoutBtn").addEventListener("click",async()=>{
+ resetViews();
+ try{await signOut(auth)}
+ catch{alert("تعذر تسجيل الخروج");}
+});
+
+el("refreshBtn").addEventListener("click",async()=>{
+ if(!auth.currentUser)return;
+ try{
+  await reload(auth.currentUser);
+  await auth.currentUser.getIdToken(true);
+  await refreshAccount();
+ }catch{
+  alert("تعذر تحديث الحساب.");
+ }
+});
+
+onAuthStateChanged(auth,user=>{
+ if(!user){
+  ++sequence;
+  resetViews();
+  el("identity").hidden=true;
+  el("loginPanel").hidden=false;
+  el("registerPanel").hidden=false;
+  status("loginStatus","أدخل بيانات حسابك للمتابعة.");
+  return;
+ }
+ refreshAccount();
+},()=>{
+ status("loginStatus","تعذر التحقق من حالة الدخول.",true);
+});
 </script>
-
 </body>
 </html>
