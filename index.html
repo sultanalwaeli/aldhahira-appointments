@@ -1010,6 +1010,14 @@ try {
 }
 
 </script>
-
+<script>
+  async function testSecureConnection() {
+    const response = await fetch(
+      'https://aldhahira-secure-api.sultan-alwaeli.workers.dev/health'
+    );
+    const result = await response.json();
+    console.log('Cloudflare connection:', result);
+  }
+</script>
 </body>
 </html>
