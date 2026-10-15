@@ -7,7 +7,7 @@
 <title>منصة التعيينات والتنقلات | محافظة الظاهرة</title>
 
 <style>
-:root {
+:root{
   --navy:#102f4b;
   --blue:#17618c;
   --gold:#caa35d;
@@ -15,25 +15,25 @@
   --text:#17354a;
   --muted:#687d8b;
 }
-* {box-sizing:border-box}
-body {
+*{box-sizing:border-box}
+body{
   margin:0;
   font-family:Tahoma,Arial,sans-serif;
   background:var(--bg);
   color:var(--text);
 }
-[hidden] {display:none!important}
-.top {
+[hidden]{display:none!important}
+.top{
   background:linear-gradient(120deg,#0d2b45,#175d83);
   color:white;
   padding:24px 5% 60px;
 }
-.brand {
+.brand{
   display:flex;
   align-items:center;
   gap:18px;
 }
-.brand img {
+.brand img{
   width:86px;
   height:86px;
   object-fit:contain;
@@ -41,28 +41,28 @@ body {
   border-radius:16px;
   padding:8px;
 }
-.brand small {
+.brand small{
   display:block;
   color:#c9e0ed;
   font-size:13px;
   margin-bottom:7px;
 }
-.brand h1 {
+.brand h1{
   font-size:clamp(19px,3vw,29px);
   margin:0 0 7px;
 }
-.brand p {
+.brand p{
   margin:0;
   color:#d6e6ee;
   font-size:14px;
 }
-.wrap {
+.wrap{
   max-width:1150px;
   margin:-38px auto 60px;
   padding:0 18px;
   position:relative;
 }
-.notice {
+.notice{
   background:#fff9eb;
   border:1px solid #eed7a4;
   border-radius:14px;
@@ -72,12 +72,12 @@ body {
   color:#795d25;
   font-size:14px;
 }
-.grid {
+.grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:16px;
 }
-.tile {
+.tile{
   background:white;
   border:1px solid #e3eaf0;
   border-radius:19px;
@@ -89,26 +89,26 @@ body {
   color:inherit;
   font:inherit;
 }
-.tile:hover,.tile.active {
+.tile:hover,.tile.active{
   border-color:#2d7fa9;
   transform:translateY(-2px);
 }
-.tile .symbol {
+.tile .symbol{
   font-size:30px;
   display:block;
   margin-bottom:14px;
 }
-.tile strong {
+.tile strong{
   display:block;
   font-size:18px;
   margin-bottom:9px;
 }
-.tile span {
+.tile span{
   color:var(--muted);
   font-size:13px;
   line-height:1.8;
 }
-.panel {
+.panel{
   margin-top:20px;
   background:white;
   border:1px solid #e3eaf0;
@@ -116,28 +116,28 @@ body {
   padding:27px;
   box-shadow:0 8px 25px #1234520b;
 }
-.panel h2 {
+.panel h2{
   margin:0 0 8px;
   font-size:21px;
 }
-.panel p {
+.panel p{
   color:var(--muted);
   line-height:1.9;
   font-size:14px;
   margin:0 0 22px;
 }
-.fields {
+.fields{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:17px;
 }
-label {
+label{
   display:block;
   font-size:13px;
   font-weight:bold;
   margin-bottom:7px;
 }
-input,select,textarea {
+input,select,textarea{
   width:100%;
   border:1px solid #d5e0e8;
   border-radius:11px;
@@ -146,19 +146,24 @@ input,select,textarea {
   background:#fafcfd;
   color:#234;
 }
-input:focus,select:focus,textarea:focus {
+input:focus,select:focus,textarea:focus{
   outline:2px solid #a8d4ea;
   border-color:var(--blue);
 }
-.wide {grid-column:1/-1}
-.actions {
+input[readonly]{
+  background:#edf5f9;
+  color:#174969;
+  cursor:default;
+}
+.wide{grid-column:1/-1}
+.actions{
   margin-top:20px;
   display:flex;
   gap:10px;
   align-items:center;
   flex-wrap:wrap;
 }
-.btn {
+.btn{
   border:0;
   border-radius:11px;
   padding:13px 22px;
@@ -168,19 +173,19 @@ input:focus,select:focus,textarea:focus {
   font-weight:bold;
   cursor:pointer;
 }
-.btn:disabled {
+.btn:disabled{
   background:#a9bcc9;
   cursor:not-allowed;
 }
-.btn.secondary {
+.btn.secondary{
   background:#e7f0f6;
   color:#155475;
 }
-.sub {
+.sub{
   color:var(--muted);
   font-size:12px;
 }
-.pill {
+.pill{
   display:inline-block;
   background:#e9f1f6;
   color:#1a658b;
@@ -190,15 +195,15 @@ input:focus,select:focus,textarea:focus {
   font-weight:bold;
   margin-bottom:15px;
 }
-.status {
+.status{
   margin:12px 0 0;
   font-size:13px;
   line-height:1.8;
   min-height:22px;
 }
-.status.error {color:#ad2c36}
-.status.ok {color:#17623a}
-.identity {
+.status.error{color:#ad2c36}
+.status.ok{color:#17623a}
+.identity{
   display:flex;
   align-items:center;
   gap:12px;
@@ -210,41 +215,49 @@ input:focus,select:focus,textarea:focus {
   border-radius:14px;
   margin-bottom:18px;
 }
-.identity strong {color:#175a3c}
-.identity span {
+.identity strong{color:#175a3c}
+.identity span{
   font-size:13px;
   overflow-wrap:anywhere;
 }
-.identity .btn {padding:9px 16px}
-.preview {
+.identity .btn{padding:9px 16px}
+.lookup-status{
+  margin-top:9px;
+  font-size:12px;
+  min-height:20px;
+  color:var(--muted);
+}
+.lookup-status.ok{color:#17623a}
+.lookup-status.error{color:#ad2c36}
+.preview{
   margin-top:22px;
   padding:22px;
   border:1px solid #b7d5e7;
   border-radius:15px;
   background:#f5faff;
 }
-.preview h3 {
+.preview h3{
   margin:0 0 15px;
   color:var(--navy);
 }
-.preview-grid {
+.preview-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
 }
-.preview-item {
+.preview-item{
   background:white;
   padding:12px;
   border-radius:10px;
   border:1px solid #e1ebf1;
   overflow-wrap:anywhere;
 }
-.preview-item small {
+.preview-item small{
   display:block;
   color:var(--muted);
   margin-bottom:7px;
 }
-.demo-stamp {
+.demo-stamp{
   background:#fff0d4;
   color:#805a14;
   border:1px solid #e6c88e;
@@ -253,20 +266,20 @@ input:focus,select:focus,textarea:focus {
   margin-bottom:15px;
   font-weight:bold;
 }
-footer {
+footer{
   text-align:center;
   color:#718798;
   font-size:12px;
   padding:0 20px 35px;
 }
-@media(max-width:720px) {
-  .grid,.fields,.preview-grid {
+@media(max-width:720px){
+  .grid,.fields,.preview-grid{
     grid-template-columns:1fr;
   }
-  .top {padding:20px 18px 65px}
-  .brand img {width:65px;height:65px}
-  .panel {padding:20px}
-  .tile {padding:18px}
+  .top{padding:20px 18px 65px}
+  .brand img{width:65px;height:65px}
+  .panel{padding:20px}
+  .tile{padding:18px}
 }
 </style>
 </head>
@@ -290,10 +303,10 @@ footer {
 
 <div class="notice">
   <strong>النسخة التجريبية:</strong>
-  يمكن اختبار نموذج طلب المعلم البديل باستخدام
-  بيانات افتراضية فقط. لا تُرسل الطلبات ولا تُحفظ
-  في قواعد بيانات الوزارة. الخدمات الفعلية
-  تنتظر استكمال التحقق من الصلاحيات وأمان الخادم.
+  يمكن تجربة البحث التلقائي عن المعلمين باستخدام
+  أرقام وظيفية افتراضية فقط.
+  لا تتصل هذه النسخة بقاعدة بيانات الموظفين،
+  ولا تُرسل الطلبات أو تحفظها.
 </div>
 
 <!-- تسجيل الدخول -->
@@ -316,7 +329,6 @@ footer {
           required
           placeholder="البريد المسجل في المنصة">
       </div>
-
       <div>
         <label for="password">كلمة المرور</label>
         <input
@@ -337,7 +349,7 @@ footer {
         تسجيل الدخول
       </button>
       <span class="sub">
-        يتم تسجيل الدخول بواسطة Firebase Authentication
+        تسجيل الدخول بواسطة Firebase Authentication
       </span>
     </div>
 
@@ -357,7 +369,7 @@ footer {
     <strong>تم تسجيل الدخول بنجاح</strong>
     <div><span id="userEmail"></span></div>
     <span class="sub">
-      تم التحقق من تسجيل الدخول عبر Firebase.
+      الهوية مؤكدة في Firebase.
       الصلاحيات الوظيفية لم تُفعّل بعد.
     </span>
   </div>
@@ -370,9 +382,9 @@ footer {
   </button>
 </div>
 
-<!-- واجهة المنصة -->
 <div id="workspace" hidden>
 
+<!-- البوابات -->
 <section class="grid" aria-label="بوابات المنصة">
 
   <button
@@ -382,8 +394,8 @@ footer {
     <span class="symbol">🏫</span>
     <strong>تقديم طلب معلم بديل</strong>
     <span>
-      تجربة إدخال بيانات المعلم المجاز
-      وتفاصيل الإجازة دون إرسال الطلب.
+      تجربة البحث عن المعلم بالرقم الوظيفي
+      واستكمال تفاصيل الإجازة.
     </span>
   </button>
 
@@ -394,8 +406,8 @@ footer {
     <span class="symbol">📋</span>
     <strong>متابعة طلبات المدرسة</strong>
     <span>
-      واجهة متابعة الطلبات.
-      الربط الفعلي قيد الإعداد.
+      متابعة الطلبات بعد اعتماد صلاحيات
+      مدير المدرسة وربط الخادم.
     </span>
   </button>
 
@@ -406,24 +418,23 @@ footer {
     <span class="symbol">🏛️</span>
     <strong>قسم التعيينات والتنقلات</strong>
     <span>
-      واجهة القسم لإدارة طلبات المعلمين البدلاء.
-      العمليات الفعلية غير مفعلة.
+      مراجعة الطلبات وإدارة التكليفات
+      بعد اعتماد صلاحيات القسم.
     </span>
   </button>
 
 </section>
 
-<!-- نموذج الطلب التجريبي -->
+<!-- نموذج الطلب -->
 <section class="panel" id="request">
 
   <span class="pill">بوابة المدارس — تجربة</span>
   <h2>طلب توفير معلم بديل</h2>
 
   <p>
-    أدخل بيانات افتراضية لاختبار النموذج.
-    في النسخة التشغيلية ستُستخرج بيانات المعلم
-    ومدرسته من قاعدة البيانات بعد التحقق من
-    صلاحيات مدير المدرسة على الخادم.
+    أدخل رقمًا وظيفيًا تجريبيًا، وستظهر بيانات
+    المعلم ومدرسته ووظيفته تلقائيًا.
+    لا تستخدم بيانات موظفين حقيقية في هذه المرحلة.
   </p>
 
   <form id="requestForm">
@@ -441,7 +452,16 @@ footer {
           maxlength="15"
           pattern="[0-9]{4,15}"
           placeholder="مثال تجريبي: 123456"
+          autocomplete="off"
           required>
+
+        <div
+          class="lookup-status"
+          id="lookupStatus"
+          role="status"
+          aria-live="polite">
+          جرّب الرقم 123456 أو 234567 أو 345678.
+        </div>
       </div>
 
       <div>
@@ -449,8 +469,8 @@ footer {
         <input
           id="schoolName"
           type="text"
-          maxlength="120"
-          placeholder="اسم مدرسة افتراضية"
+          placeholder="يظهر تلقائيًا"
+          readonly
           required>
       </div>
 
@@ -461,8 +481,8 @@ footer {
         <input
           id="employeeName"
           type="text"
-          maxlength="120"
-          placeholder="اسم افتراضي للمعلم"
+          placeholder="يظهر تلقائيًا"
+          readonly
           required>
       </div>
 
@@ -471,8 +491,8 @@ footer {
         <input
           id="job"
           type="text"
-          maxlength="100"
-          placeholder="مثال: معلم رياضيات"
+          placeholder="يظهر تلقائيًا"
+          readonly
           required>
       </div>
 
@@ -547,7 +567,7 @@ footer {
 
   </form>
 
-  <!-- نتيجة المعاينة -->
+  <!-- المعاينة -->
   <div
     class="preview"
     id="requestPreview"
@@ -555,7 +575,7 @@ footer {
 
     <div class="demo-stamp">
       طلب تجريبي فقط — لم يُرسل إلى القسم
-      ولم يُحفظ في أي قاعدة بيانات.
+      ولم يُحفظ في قاعدة البيانات.
     </div>
 
     <h3>معاينة بيانات طلب المعلم البديل</h3>
@@ -583,15 +603,13 @@ footer {
   <span class="pill">لوحة مدير المدرسة</span>
   <h2>متابعة طلبات مدرستي</h2>
   <p>
-    هذه واجهة تجريبية.
-    ستُعرض الطلبات الحقيقية بعد ربط حساب
-    مدير المدرسة برمز مدرسته والتحقق من
-    صلاحياته على الخادم.
+    ستظهر الطلبات المرتبطة بمدرسة المستخدم
+    بعد التحقق من هويته وصلاحياته على الخادم.
   </p>
 
   <div class="notice">
     لا توجد طلبات تجريبية محفوظة.
-    معاينة الطلب لا تنشئ سجلًا ولا ترسل بيانات.
+    المعاينة لا تنشئ سجلًا رسميًا.
   </div>
 </section>
 
@@ -601,14 +619,14 @@ footer {
   <h2>إدارة طلبات المعلمين البدلاء</h2>
   <p>
     يجري إعداد لوحة قسم التعيينات والتنقلات
-    لاستقبال الطلبات ومراجعتها والبحث عن
-    البدلاء وتسجيل قرارات التكليف.
+    لاستقبال طلبات المدارس ومراجعتها
+    والبحث عن المعلمين البدلاء وإدارة التكليفات.
   </p>
 
   <div class="notice">
     وضع العرض التجريبي فقط.
-    لا تتوفر حاليًا صلاحيات مراجعة الطلبات
-    أو الوصول إلى بيانات الموظفين والمتقدمين.
+    لا تتوفر حاليًا صلاحيات الوصول إلى
+    بيانات الموظفين أو المتقدمين.
   </div>
 </section>
 
@@ -620,12 +638,14 @@ footer {
   — نسخة تجريبية لا تُستخدم للطلبات الرسمية
 </footer>
 
-<!-- وظائف الواجهة -->
+<!-- وظائف النموذج التجريبي -->
 <script>
+
 const workspacePanels =
   document.querySelectorAll('#workspace .panel');
 
-const tiles = document.querySelectorAll('.tile');
+const tiles =
+  document.querySelectorAll('.tile');
 
 function showView(id) {
   workspacePanels.forEach(panel => {
@@ -651,14 +671,96 @@ tiles.forEach(tile => {
   });
 });
 
+/*
+  بيانات افتراضية للتجربة فقط.
+  لا تستخدم بيانات موظفين حقيقية هنا.
+*/
+const demoEmployees = {
+  "123456": {
+    name:"أحمد بن محمد",
+    school:"مدرسة الأفق التجريبية",
+    job:"معلم رياضيات"
+  },
+  "234567": {
+    name:"خالد بن سالم",
+    school:"مدرسة المستقبل التجريبية",
+    job:"معلم لغة عربية"
+  },
+  "345678": {
+    name:"محمد بن علي",
+    school:"مدرسة الإبداع التجريبية",
+    job:"معلم علوم"
+  }
+};
+
 const requestForm =
   document.getElementById('requestForm');
+
+const employeeNumberInput =
+  document.getElementById('employeeNumber');
+
+const employeeNameInput =
+  document.getElementById('employeeName');
+
+const schoolNameInput =
+  document.getElementById('schoolName');
+
+const jobInput =
+  document.getElementById('job');
+
+const lookupStatus =
+  document.getElementById('lookupStatus');
 
 const requestPreview =
   document.getElementById('requestPreview');
 
 const previewContent =
   document.getElementById('previewContent');
+
+function clearEmployeeFields() {
+  employeeNameInput.value = '';
+  schoolNameInput.value = '';
+  jobInput.value = '';
+}
+
+function lookupEmployee() {
+  const number =
+    employeeNumberInput.value.trim();
+
+  clearEmployeeFields();
+  requestPreview.hidden = true;
+  previewContent.replaceChildren();
+
+  if (!number) {
+    lookupStatus.textContent =
+      'جرّب الرقم 123456 أو 234567 أو 345678.';
+    lookupStatus.className = 'lookup-status';
+    return;
+  }
+
+  const employee = demoEmployees[number];
+
+  if (!employee) {
+    lookupStatus.textContent =
+      'لم يُعثر على الرقم في البيانات التجريبية.';
+    lookupStatus.className =
+      'lookup-status error';
+    return;
+  }
+
+  employeeNameInput.value = employee.name;
+  schoolNameInput.value = employee.school;
+  jobInput.value = employee.job;
+
+  lookupStatus.textContent =
+    'تم العثور على بيانات المعلم التجريبية بنجاح.';
+  lookupStatus.className = 'lookup-status ok';
+}
+
+employeeNumberInput.addEventListener(
+  'input',
+  lookupEmployee
+);
 
 const previewFields = [
   ['الرقم الوظيفي','employeeNumber'],
@@ -689,6 +791,20 @@ function addPreviewItem(label, value) {
 requestForm.addEventListener('submit', event => {
   event.preventDefault();
 
+  lookupEmployee();
+
+  const number =
+    employeeNumberInput.value.trim();
+
+  if (!demoEmployees[number]) {
+    lookupStatus.textContent =
+      'أدخل رقمًا وظيفيًا تجريبيًا صحيحًا أولًا.';
+    lookupStatus.className =
+      'lookup-status error';
+    employeeNumberInput.focus();
+    return;
+  }
+
   if (!requestForm.reportValidity()) return;
 
   const start =
@@ -706,11 +822,11 @@ requestForm.addEventListener('submit', event => {
 
   previewContent.replaceChildren();
 
-  previewFields.forEach(([label, id]) => {
+  previewFields.forEach(([label,id]) => {
     const value =
       document.getElementById(id).value.trim();
 
-    addPreviewItem(label, value);
+    addPreviewItem(label,value);
   });
 
   requestPreview.hidden = false;
@@ -724,6 +840,13 @@ requestForm.addEventListener('submit', event => {
 requestForm.addEventListener('reset', () => {
   requestPreview.hidden = true;
   previewContent.replaceChildren();
+
+  setTimeout(() => {
+    clearEmployeeFields();
+    lookupStatus.textContent =
+      'جرّب الرقم 123456 أو 234567 أو 345678.';
+    lookupStatus.className = 'lookup-status';
+  },0);
 });
 
 document.getElementById('editRequest')
@@ -735,6 +858,7 @@ document.getElementById('editRequest')
       block:'start'
     });
   });
+
 </script>
 
 <!-- Firebase Authentication -->
@@ -778,20 +902,18 @@ const identity =
 const workspace =
   document.getElementById('workspace');
 
-function setStatus(message, type='') {
+function setStatus(message,type='') {
   loginStatus.textContent = message;
   loginStatus.className = 'status ' + type;
 }
 
 try {
-
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
   onAuthStateChanged(
     auth,
     user => {
-
       loginPanel.hidden = !!user;
       identity.hidden = !user;
       workspace.hidden = !user;
@@ -805,7 +927,6 @@ try {
       } else {
         requestForm.reset();
         loginBtn.disabled = false;
-
         setStatus(
           'أدخل بيانات حسابك الذي أنشأه مسؤول النظام.'
         );
@@ -813,7 +934,6 @@ try {
     },
     () => {
       loginBtn.disabled = true;
-
       setStatus(
         'تعذر التحقق من حالة تسجيل الدخول.',
         'error'
@@ -824,9 +944,7 @@ try {
   loginForm.addEventListener(
     'submit',
     async event => {
-
       event.preventDefault();
-
       loginBtn.disabled = true;
 
       setStatus(
@@ -834,7 +952,6 @@ try {
       );
 
       try {
-
         await signInWithEmailAndPassword(
           auth,
           document.getElementById('email')
@@ -848,8 +965,7 @@ try {
           'ok'
         );
 
-      } catch (err) {
-
+      } catch(err) {
         const messages = {
           'auth/invalid-credential':
             'بيانات الدخول غير صحيحة.',
@@ -876,8 +992,7 @@ try {
   );
 
   document.getElementById('logoutBtn')
-    .addEventListener('click', async () => {
-
+    .addEventListener('click',async()=>{
       try {
         await signOut(auth);
       } catch {
